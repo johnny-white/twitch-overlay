@@ -3,7 +3,7 @@ const twitchOverlayTitle = document.querySelector('.twitch-overlay__title')
 
 const client = new tmi.Client({
   // Channel name to connect
-	channels: ['amieloo']
+	channels: ['dontcallmechris']
 })
 
 client.connect()
