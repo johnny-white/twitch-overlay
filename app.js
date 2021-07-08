@@ -3,12 +3,13 @@ const twitchOverlayTitle = document.querySelector('.twitch-overlay__title')
 
 const client = new tmi.Client({
   // Channel name to connect
-	channels: ['dontcallmechris']
+	channels: ['amieloo']
 })
 
 client.connect()
 
-client.on('message', (tags, message, self) => {
+client.on('message', (channel, tags, message, self) => {
+  console.log(message)
   if (self) return
 
   // Badges: broadcaster, moderator, vip
