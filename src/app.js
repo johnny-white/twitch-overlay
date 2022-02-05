@@ -3,13 +3,12 @@ const twitchOverlayTitle = document.querySelector('.twitch-overlay__title')
 
 const client = new tmi.Client({
   // Channel name to connect
-	channels: ['dontcallmechris']
+  channels: ['channelName']
 })
 
 client.connect()
 
 client.on('message', (channel, tags, message, self) => {
-  console.log(message)
   if (self) return
 
   // Badges: broadcaster, moderator, vip
@@ -17,7 +16,7 @@ client.on('message', (channel, tags, message, self) => {
   const moderator = tags.badges.moderator
 
   // Choose who can use the command
-	if (broadcaster || moderator && message.startsWith('!')) {
+  if (broadcaster || (moderator && message.startsWith('!'))) {
     const [command, ...arguments] = message.split(' ')
 
     if (command === '!betinfo') {
